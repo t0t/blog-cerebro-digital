@@ -147,7 +147,7 @@ def generate_blog():
 
                 # Generar página individual del post
                 post_template = env.get_template('post.html')
-                rendered_post = post_template.render(post=post_data)
+                rendered_post = post_template.render(post=post_data, base_url=BASE_URL)
 
                 output_dir = os.path.join(DOCS_DIR, category_slug)
                 os.makedirs(output_dir, exist_ok=True)
