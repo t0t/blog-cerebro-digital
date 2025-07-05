@@ -7,7 +7,7 @@
             <div class="article-card">
                 <a href="{{ post.url }}" class="article-link">
                     {% if post.thumbnail %}
-                        <img src="{{ base_url }}{{ post.thumbnail }}" alt="{{ post.title }}" class="article-thumbnail">
+                        <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="article-thumbnail">
                     {% endif %}
                     <h3>{{ post.title }}</h3>
                     <p class="article-meta"><small>{{ post.date }}</small></p>
