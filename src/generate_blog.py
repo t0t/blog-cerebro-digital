@@ -16,6 +16,9 @@ DOCS_DIR = os.path.join(os.path.dirname(BASE_DIR), 'docs')
 RESOURCES_DIR = '/Users/a01234/CEREBRO-DIGITAL/RECURSOS/' # Ruta absoluta a /RECURSOS/
 THUMBNAILS_DIR = os.path.join(STATIC_DIR, 'thumbnails') # Nueva carpeta para miniaturas
 
+# URL base para GitHub Pages (nombre del repositorio)
+BASE_URL = '/blog-cerebro-digital'
+
 # Configuración de Jinja2
 env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
 
@@ -130,7 +133,7 @@ def generate_blog():
                 # Crear URL amigable
                 slug = os.path.splitext(filename)[0]
                 category_slug = slugify(front_matter['category'])
-                post_url = os.path.join('/', category_slug, f'{slug}.html')
+                post_url = os.path.join(BASE_URL, category_slug, f'{slug}.html')
 
                 post_data = {
                     'title': front_matter['title'],
@@ -158,7 +161,7 @@ def generate_blog():
 
     # Generar página de índice
     index_template = env.get_template('index.html')
-    rendered_index = index_template.render(posts=posts, year=2025, title="Inicio") # Pasar el título para la página de inicio
+    rendered_index = index_template.render(posts=posts, year=2025, title="Inicio", base_url=BASE_URL)
     with open(os.path.join(DOCS_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(rendered_index)
     print(f"Generado: {os.path.join(DOCS_DIR, 'index.html')}")
@@ -176,7 +179,7 @@ def generate_blog():
     category_template = env.get_template('category.html')
     for category, cat_posts in category_posts.items():
         category_slug = slugify(category)
-        rendered_category = category_template.render(posts=cat_posts, category_name=category, title=f"Categoría: {category}")
+        rendered_category = category_template.render(posts=cat_posts, category_name=category, title=f"Categoría: {category}", base_url=BASE_URL)
         output_path = os.path.join(DOCS_DIR, 'categoria', f'{category_slug}.html')
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, 'w', encoding='utf-8') as f:

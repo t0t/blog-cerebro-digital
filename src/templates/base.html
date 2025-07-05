@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Blog CEREBRO-DIGITAL</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title>{{ title }} - Bitácora 01234</title>
+    <link rel="stylesheet" href="{{ base_url }}/static/css/style.css">
 </head>
 <body>
     <div class="container">
         <header class="main-header">
             <h1>
-                <a href="/">
-                    <img src="/static/assets/cerebro-digital-logo.svg" alt="CEREBRO-DIGITAL Logo" class="site-logo">
+                <a href="{{ base_url }}/">
+                    <img src="{{ base_url }}/static/assets/cerebro-digital-logo.svg" alt="CEREBRO-DIGITAL Logo" class="site-logo">
                     Bitácora 01234
                 </a>
             </h1>
@@ -22,9 +22,9 @@
                     <span class="bar"></span>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="/categoria/ia.html">IA</a></li>
-                    <li><a href="/categoria/arte.html">Arte</a></li>
-                    <li><a href="/categoria/filosofia.html">Filosofía</a></li>
+                    <li><a href="{{ base_url }}/categoria/ia.html">IA</a></li>
+                    <li><a href="{{ base_url }}/categoria/arte.html">Arte</a></li>
+                    <li><a href="{{ base_url }}/categoria/filosofia.html">Filosofía</a></li>
                 </ul>
             </nav>
         </header>
@@ -35,6 +35,6 @@
             <p>&copy; {{ year }} Sergio Forés - CEREBRO-DIGITAL</p>
         </footer>
     </div>
-    <script src="/static/js/main.js"></script>
+    <script src="{{ base_url }}/static/js/main.js"></script>
 </body>
 </html>
