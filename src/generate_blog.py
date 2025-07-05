@@ -67,7 +67,7 @@ def process_thumbnail(image_path, output_dir, size=(900, 600), quality=95):
             img.thumbnail(size, Image.Resampling.LANCZOS)
             img.save(output_path, optimize=True, quality=quality)
         print(f"Miniatura generada: {output_path}")
-        return os.path.join(BASE_URL, 'static/thumbnails', filename)
+        return os.path.join('/static/thumbnails', filename)
     except Exception as e:
         print(f"Error al procesar la miniatura {image_path}: {e}")
         return None
@@ -133,7 +133,7 @@ def generate_blog():
                 # Crear URL amigable
                 slug = os.path.splitext(filename)[0]
                 category_slug = slugify(front_matter['category'])
-                post_url = os.path.join(BASE_URL, category_slug, f'{slug}.html')
+                post_url = os.path.join('/', category_slug, f'{slug}.html')
 
                 post_data = {
                     'title': front_matter['title'],
