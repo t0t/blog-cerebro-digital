@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <article class="post-article">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-meta"><small>{{ post.date }} - {{ post.category }}</small></p>
+        
+        <div class="post-content">
+            {% if post.thumbnail %}
+                <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="post-main-image">
+            {% endif %}
+            {{ post.content }}
+        </div>
+    </article>
+{% endblock %}

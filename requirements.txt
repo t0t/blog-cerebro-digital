@@ -1,0 +1,4 @@
+markdown
+PyYAML
+Jinja2
+Pillow
