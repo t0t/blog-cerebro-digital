@@ -1,4 +1,4 @@
-# Blog CEREBRO-DIGITAL
+# Bitácora 01234
 
 Este es el blog estático del CEREBRO-DIGITAL, donde se materializan ideas y conocimientos sobre IA, Arte, Filosofía y más, excluyendo estrictamente cualquier dato sensible.
 
@@ -20,3 +20,7 @@ python src/generate_blog.py
 ## Despliegue
 
 El contenido generado en la carpeta `docs/` está listo para ser desplegado en GitHub Pages. Configura tu repositorio para servir desde la rama `main` (o `master`) y la carpeta `/docs`.
+
+---
+
+*Forzando una reconstrucción de GitHub Pages.*
