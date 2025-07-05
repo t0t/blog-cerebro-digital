@@ -1,0 +1,358 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-text-dark: #222;
+    --color-text-medium: #333;
+    --color-text-light: #555;
+    --color-background-light: #f8f8f8;
+    --color-background-white: #fff;
+    --color-border: #eee;
+    --color-accent-primary: #FF6B6B; /* Rojo Bauhaus */
+    --color-accent-secondary: #4ECDC4; /* Turquesa */
+    --color-accent-orange: #FF8C00; /* Atomic Orange */
+}
+
+body {
+    font-family: 'Avenir Next', 'Futura', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.08em; /* 2-4px en un tamaño de fuente base */
+    line-height: 1.7; /* Generoso */
+    color: var(--color-text-medium);
+    background-color: var(--color-background-light);
+    margin: 0;
+    padding: 0 20px; /* Ajustado a 20px */
+}
+
+.container {
+    max-width: 960px; /* Un poco más ancho para editorial */
+    margin: 0 auto;
+    background-color: var(--color-background-white);
+    padding: 60px 80px; /* Más espaciado interno */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Sutil sombra */
+    border-radius: 4px;
+    margin-top: 80px; /* Espacio para el header fijo */
+}
+
+/* Estilos para el header fijo y dinámico */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background-white);
+    padding: 15px 20px; /* Reducir padding vertical, añadir horizontal */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    
+    display: flex; /* Usar flexbox */
+    justify-content: space-between; /* Espacio entre logo y nav */
+    align-items: center; /* Alinear verticalmente */
+}
+
+.main-header.hidden {
+    transform: translateY(-100%);
+}
+
+.main-header h1 {
+    font-size: 2.2em; /* Ajustar tamaño de fuente para que quepa */
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 0; /* Eliminar margen inferior */
+    display: flex; /* Para alinear el SVG y el texto */
+    align-items: center;
+    gap: 10px; /* Espacio entre SVG y texto */
+}
+
+.main-header h1 a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    display: flex; /* Para alinear el SVG y el texto */
+    align-items: center;
+    gap: 10px; /* Espacio entre SVG y texto */
+}
+
+.main-header h1 a:hover {
+    color: var(--color-accent-primary);
+}
+
+.site-logo {
+    height: 40px; /* Tamaño del SVG */
+    width: auto;
+}
+
+/* Estilos de navegación */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaciado entre elementos de navegación */
+}
+
+.main-nav a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent-primary);
+    transition: width 0.3s ease-in-out;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Botón de hamburguesa */
+.hamburger-menu {
+    display: none; /* Ocultar por defecto en desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text-dark);
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Grid de artículos */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas flexibles */
+    gap: 40px; /* Espacio entre tarjetas */
+    margin-top: 40px;
+}
+
+.article-card {
+    background-color: var(--color-background-white);
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Para que la imagen no se salga */
+    transition: transform 0.2s ease-in-out;
+    position: relative; /* Para posicionar el enlace */
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-link {
+    display: block;
+    text-decoration: none;
+    color: inherit; /* Heredar color de texto */
+    padding-bottom: 20px; /* Espacio inferior dentro del enlace */
+}
+
+.article-thumbnail {
+    width: 100%;
+    height: 200px; /* Altura fija para las miniaturas */
+    object-fit: cover; /* Cubrir el área sin distorsionar */
+    display: block;
+}
+
+.article-card h3 {
+    font-size: 1.4em;
+    margin: 20px 20px 10px 20px;
+    line-height: 1.3;
+}
+
+.article-card h3 a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+}
+
+.article-card h3 a:hover {
+    color: var(--color-accent-primary);
+}
+
+.article-meta {
+    color: var(--color-text-light);
+    font-size: 0.85em;
+    margin: 0 20px 20px 20px;
+    display: block;
+}
+
+/* Media Queries para responsive */
+@media (max-width: 1024px) {
+    body {
+        padding: 0 20px; /* Ajustar padding horizontal */
+    }
+
+    .container {
+        padding: 30px 20px;
+        margin-top: 70px; /* Ajustar para móvil */
+    }
+
+    .main-header {
+        padding: 10px 20px;
+    }
+
+    .main-header h1 {
+        font-size: 1.8em;
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostrar en móvil */
+    }
+
+    .main-nav ul {
+        display: none; /* Ocultar enlaces por defecto en móvil */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--color-background-white);
+        position: absolute;
+        top: 100%; /* Debajo del header */
+        left: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+    }
+
+    .main-nav ul.active {
+        display: flex; /* Mostrar cuando esté activo */
+    }
+
+    .main-nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    color: var(--color-text-dark);
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+article {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+article:last-of-type {
+    border-bottom: none;
+}
+
+article p {
+    margin-bottom: 1em;
+}
+
+article small {
+    color: var(--color-text-light);
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+}
+
+a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-light);
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+}
+
+/* Estilos para el formato de artículo */
+.post-article {
+    padding-top: 20px;
+}
+
+.post-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.post-meta {
+    color: var(--color-text-light);
+    font-size: 0.9em;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.post-content p {
+    margin-bottom: 1.5em;
+}
+
+.post-content img, .post-content video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto; /* Centrar imagen/video y añadir espacio */
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-content blockquote {
+    border-left: 4px solid var(--color-accent-primary);
+    padding-left: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    color: var(--color-text-dark);
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.post-conclusion {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.post-conclusion h3 {
+    font-size: 1.5em;
+    color: var(--color-accent-primary);
+    margin-bottom: 15px;
+}
