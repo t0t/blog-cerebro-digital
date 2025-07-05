@@ -7,7 +7,7 @@
         
         <div class="post-content">
             {% if post.thumbnail %}
-                <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="post-main-image">
+                <img src="{{ base_url }}{{ post.thumbnail }}" alt="{{ post.title }}" class="post-main-image">
             {% endif %}
             {{ post.content }}
         </div>

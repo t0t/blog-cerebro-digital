@@ -67,7 +67,7 @@ def process_thumbnail(image_path, output_dir, size=(900, 600), quality=95):
             img.thumbnail(size, Image.Resampling.LANCZOS)
             img.save(output_path, optimize=True, quality=quality)
         print(f"Miniatura generada: {output_path}")
-        return os.path.join('/static/thumbnails', filename)
+        return os.path.join(BASE_URL, 'static/thumbnails', filename)
     except Exception as e:
         print(f"Error al procesar la miniatura {image_path}: {e}")
         return None
