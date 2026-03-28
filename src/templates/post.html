@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
+{% block header %}
+    <a href="{{ rel_root }}" class="back-link">&larr; Bitacora 01234</a>
+{% endblock %}
+
 {% block content %}
-    <article class="post-article">
-        <h2 class="post-title">{{ post.title }}</h2>
-        <p class="post-meta"><small>{{ post.date }} - {{ post.category }}</small></p>
-        
+    <article>
+        {{ post.svg_hero | safe }}
+        <h1 class="post-title">{{ post.title }}</h1>
+        <div class="post-meta">{{ post.date }} &middot; {{ post.category }}</div>
         <div class="post-content">
-            {% if post.thumbnail %}
-                <img src="{{ base_url }}{{ post.thumbnail }}" alt="{{ post.title }}" class="post-main-image">
-            {% endif %}
-            {{ post.content }}
+            {{ post.content | safe }}
         </div>
     </article>
 {% endblock %}

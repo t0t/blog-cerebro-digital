@@ -3,38 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Bitácora 01234</title>
-    <link rel="stylesheet" href="{{ base_url }}/static/css/style.css">
+    <title>{{ title }} - Bitacora 01234</title>
+    <link rel="stylesheet" href="{{ rel_root }}static/css/style.css">
 </head>
 <body>
     <div class="container">
-        <header class="main-header">
-            <h1>
-                <a href="{{ base_url }}/">
-                    <img src="{{ base_url }}/static/assets/cerebro-digital-logo.svg" alt="CEREBRO-DIGITAL Logo" class="site-logo">
-                    Bitácora 01234
-                </a>
-            </h1>
-            <nav class="main-nav">
-                <button class="hamburger-menu" aria-label="Toggle navigation">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="{{ base_url }}/categoria/ia.html">IA</a></li>
-                    <li><a href="{{ base_url }}/categoria/arte.html">Arte</a></li>
-                    <li><a href="{{ base_url }}/categoria/filosofia.html">Filosofía</a></li>
-                </ul>
+        {% block header %}
+        <header class="site-header">
+            <h1><a href="{{ rel_root }}"><span>Bitacora</span> 01234</a></h1>
+            <nav class="site-nav">
+                <a href="{{ rel_root }}">inicio</a>
+                <a href="{{ rel_root }}categoria/ia.html">ia</a>
+                <a href="{{ rel_root }}categoria/arte.html">arte</a>
+                <a href="{{ rel_root }}categoria/filosofia.html">filosofia</a>
             </nav>
         </header>
+        {% endblock %}
+
         <main>
             {% block content %}{% endblock %}
         </main>
+
         <footer>
-            <p>Desarrollado por <a href="https://sergiofores.es" target="_blank">Sergio Forés</a></p>
+            <a href="{{ hub_url }}">&larr; Hub Proyectos</a> &middot; <a href="https://sergiofores.es" target="_blank">sergiofores.es</a>
         </footer>
     </div>
-    <script src="{{ base_url }}/static/js/main.js"></script>
 </body>
 </html>

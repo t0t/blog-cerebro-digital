@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Últimos Artículos</h2>
-    <div class="articles-grid">
+    <h2 class="section-title">Articulos</h2>
+    <ul class="articles-list">
         {% for post in posts %}
-            <div class="article-card">
-                <a href="{{ base_url }}{{ post.url }}" class="article-link">
-                    {% if post.thumbnail %}
-                        <img src="{{ base_url }}{{ post.thumbnail }}" alt="{{ post.title }}" class="article-thumbnail">
-                    {% endif %}
-                    <h3>{{ post.title }}</h3>
-                    <p class="article-meta"><small>{{ post.date }} - {{ post.category }}</small></p>
-                </a>
-            </div>
+        <li>
+            <a href="{{ post.url }}" class="article-entry">
+                {{ post.svg_thumb | safe }}
+                <div class="article-info">
+                    <div class="article-title">{{ post.title }}</div>
+                    <div class="article-meta">{{ post.date }} &middot; {{ post.category }}</div>
+                    <div class="article-excerpt">{{ post.excerpt }}</div>
+                </div>
+            </a>
+        </li>
         {% endfor %}
-    </div>
+    </ul>
 {% endblock %}

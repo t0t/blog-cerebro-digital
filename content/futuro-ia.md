@@ -3,7 +3,7 @@ title: El Futuro de la IA en el CEREBRO-DIGITAL
 date: 2025-07-06
 category: IA
 thumbnail: /imagenes/ia-optimus-humanoid.jpg
-conclusion: "La IA no es solo una herramienta, sino un socio en la evolución del CEREBRO-DIGITAL. Su integración profunda nos permite explorar nuevas fronteras de la creatividad y la eficiencia, redefiniendo lo que es posible en la gestión del conocimiento y la materialización de ideas."
+conclusion: La IA no es solo una herramienta, sino un socio en la evolución del CEREBRO-DIGITAL. Su integración profunda nos permite explorar nuevas fronteras de la creatividad y la eficiencia, redefiniendo lo que es posible en la gestión del conocimiento y la materialización de ideas.
 ---
 
 La inteligencia artificial es un pilar fundamental en la evolución del CEREBRO-DIGITAL. Desde la automatización de tareas hasta la generación de contenido, la IA potencia cada aspecto de nuestro sistema.

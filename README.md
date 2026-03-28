@@ -1,26 +1,73 @@
-# Bitácora 01234
+# Bitacora 01234
 
-Este es el blog estático del CEREBRO-DIGITAL, donde se materializan ideas y conocimientos sobre IA, Arte, Filosofía y más, excluyendo estrictamente cualquier dato sensible.
+Blog estatico del CEREBRO-DIGITAL. Articulos sobre IA, Arte y Filosofia 01234.
 
-## Estructura del Proyecto
+## Arquitectura
 
-- `src/`: Contiene el script de generación del blog (`generate_blog.py`) y las plantillas HTML.
-- `content/`: Aquí se almacenan los archivos Markdown de los artículos del blog. Cada archivo debe incluir un *front matter* con metadatos.
-- `static/`: Archivos CSS, JavaScript e imágenes estáticas del blog.
-- `docs/`: Directorio de salida donde se genera el blog estático (HTML, CSS, JS). Este directorio está configurado para el despliegue en GitHub Pages.
-
-## Generación del Blog
-
-Para generar el blog, ejecuta el script `generate_blog.py`:
-
-```bash
-python src/generate_blog.py
+```
+blog-cerebro-digital/
+├── content/            # Markdown + frontmatter YAML (fuente de verdad)
+├── src/
+│   ├── generate_blog.py   # Generador estatico (Python)
+│   └── templates/         # Jinja2 (base, index, post, category)
+├── static/             # CSS, assets (fuente)
+├── docs/               # OUTPUT del build → GitHub Pages
+└── index.html          # Redirect local a docs/
 ```
 
-## Despliegue
+## Flujo de trabajo
 
-El contenido generado en la carpeta `docs/` está listo para ser desplegado en GitHub Pages. Configura tu repositorio para servir desde la rama `main` (o `master`) y la carpeta `/docs`.
+### Crear un articulo
 
+Anadir un `.md` en `content/` con frontmatter:
+
+```yaml
+---
+title: Titulo del articulo
+date: 2025-07-06
+category: IA | Arte | Filosofia
+conclusion: Texto de cierre del articulo.
 ---
 
-*Forzando una reconstrucción de GitHub Pages.*
+Contenido en Markdown...
+```
+
+### Generar el blog
+
+```bash
+python3 src/generate_blog.py
+```
+
+Limpia `docs/`, copia `static/`, renderiza templates, genera HTML + search index.
+
+### Desarrollo local
+
+```bash
+cd PROYECTOS && python3 -m http.server 8000
+# Abrir http://localhost:8000/blog-cerebro-digital/
+```
+
+### Despliegue
+
+GitHub Pages sirve desde `/docs` en rama `master`. Tras generar:
+
+```bash
+git add -A && git commit -m "rebuild" && git push
+```
+
+## Dependencias
+
+```bash
+pip install markdown pyyaml jinja2
+```
+
+## Diseno
+
+- Tema oscuro (#1a1a1a), tipografia monoespaciada (SF Mono, Fira Code)
+- SVGs generados por categoria (IA: red neuronal, Arte: lienzo+grid, Filosofia: jerarquia 01234)
+- URLs relativas -- funciona en local y en GitHub Pages sin configuracion
+- Sin JavaScript, sin frameworks, sin dependencias frontend
+
+## Categorias SVG
+
+Cada categoria tiene un SVG thumbnail (120x80) para listados y un SVG hero (780x160) para paginas de articulo. Definidos en `generate_blog.py`. Para anadir una nueva categoria, agregar su SVG al diccionario `SVG_THUMBS` y `SVG_HEROES`.

@@ -8,6 +8,8 @@ conclusion: "El arte y la tecnología, lejos de ser disciplinas separadas, conve
 
 En el CEREBRO-DIGITAL, el arte no es solo una expresión, sino una disciplina que se entrelaza con la tecnología y la filosofía. Exploramos cómo las herramientas digitales y la inteligencia artificial abren nuevas fronteras para la creatividad.
 
+Para mí, pintar es una forma de arteterapia que ofrece numerosos beneficios para el cerebro, fomentando la neuroplasticidad y el bienestar mental.
+
 Desde el arte generativo hasta las instalaciones interactivas, cada pieza busca reflejar la esencia de la simplicidad y la funcionalidad, utilizando la luz, el espacio y la forma como elementos primarios de expresión.
 
 > "El arte es la mentira que nos permite comprender la verdad." - Pablo Picasso
